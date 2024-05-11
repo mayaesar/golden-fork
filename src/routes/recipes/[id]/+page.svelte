@@ -1,6 +1,6 @@
 <script lang="ts">
-    import {page} from "$app/stores";
-    import {recipe_details} from "$lib/mocks/recipe_details";
+    import { page } from "$app/stores";
+    import { recipe_details } from "$lib/mocks/recipe_details";
     let recipeDetails = recipe_details.find(i => i.id === $page.params.id)!;
     let people = 1;
 
@@ -10,11 +10,16 @@
         } else {
             return quantity;
         }
-    }
+    };
 </script>
 
 <div class="-mx-3 -mt-6">
-    <img src={recipeDetails.image_url} alt="food" class="rounded-b-2xl object-cover w-full h-[30dvh]">
+    <div>
+        <img
+            src={recipeDetails.image_url}
+            alt="food"
+            class="object-cover w-full h-[30dvh]" />
+    </div>
     <div class="px-3 py-3">
         <a href="/">
             Back
@@ -36,11 +41,11 @@
         <div class="mb-3">
             {#each recipeDetails.ingredients as ingredient}
                 <label>
-                    <input type="checkbox">
+                    <input type="checkbox" />
                     <span class="font-bold">{formatQuantity(ingredient.quantity * people)} {ingredient.unit}</span>
                     {ingredient.name}
                 </label>
-                <br/>
+                <br />
             {/each}
         </div>
         <h2 class="text-2xl mb-3 underline">Instructions</h2>

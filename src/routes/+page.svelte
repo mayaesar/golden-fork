@@ -1,6 +1,7 @@
 <script lang="ts">
+    import { recipe_details as recipes } from "$lib/mocks/recipe_details";
+
     import Card from "../components/Card.svelte";
-    import {recipe_details as recipes} from "$lib/mocks/recipe_details";
 </script>
 
 <div class="flex-1 pt-6">
