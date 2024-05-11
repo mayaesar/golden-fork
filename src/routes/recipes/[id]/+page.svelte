@@ -13,49 +13,50 @@
     };
 </script>
 
-<div class="-mx-3 -mt-6">
-    <div>
-        <img
-            src={recipeDetails.image_url}
-            alt="food"
-            class="object-cover w-full h-[30dvh]" />
-    </div>
-    <div class="px-3 py-3">
-        <a href="/">
-            Back
-        </a>
+<div class="relative -mx-3 -mt-6">
+    <img
+        src={recipeDetails.image_url}
+        alt="food"
+        class="fixed top-0 left-1/2 -translate-x-1/2 object-cover w-full h-[40dvh] max-w-app"
+    />
+    <div class="-mt-6">
+        <div class="relative bg-cream rounded-t-2xl mt-[30dvh] px-3 pb-3">
+            <a href="/">
+                Back
+            </a>
 
-        <h1 class="text-3xl font-bold">{recipeDetails.title}</h1>
-        <p class="mb-6"> {recipeDetails.estimated_time}</p>
-        <div class="mb-3">
-            <label>
-                How many people?
-                <select bind:value={people}>
-                    {#each [1, 2, 3, 4, 5, 6, 7, 8] as num}
-                        <option value={num}>{num}</option>
-                    {/each}
-                </select>
-            </label>
-        </div>
-        <h2 class="text-2xl mb-3 underline">Ingredients</h2>
-        <div class="mb-3">
-            {#each recipeDetails.ingredients as ingredient}
+            <h1 class="text-3xl font-bold">{recipeDetails.title}</h1>
+            <p class="mb-6"> {recipeDetails.estimated_time}</p>
+            <div class="mb-3">
                 <label>
-                    <input type="checkbox" />
-                    <span class="font-bold">{formatQuantity(ingredient.quantity * people)} {ingredient.unit}</span>
-                    {ingredient.name}
+                    How many people?
+                    <select bind:value={people}>
+                        {#each [1, 2, 3, 4, 5, 6, 7, 8] as num}
+                            <option value={num}>{num}</option>
+                        {/each}
+                    </select>
                 </label>
-                <br />
-            {/each}
-        </div>
-        <h2 class="text-2xl mb-3 underline">Instructions</h2>
-        <div class="mb-3">
-            <ol class="list-decimal ml-4">
-                {#each recipeDetails.instructions as instruction}
-                    <li>{instruction}</li>
+            </div>
+            <h2 class="text-2xl mb-3 underline">Ingredients</h2>
+            <div class="mb-3">
+                {#each recipeDetails.ingredients as ingredient}
+                    <label>
+                        <input type="checkbox" />
+                        <span class="font-bold">{formatQuantity(ingredient.quantity * people)} {ingredient.unit}</span>
+                        {ingredient.name}
+                    </label>
+                    <br />
                 {/each}
-            </ol>
+            </div>
+            <h2 class="text-2xl mb-3 underline">Instructions</h2>
+            <div class="mb-3">
+                <ol class="list-decimal ml-4">
+                    {#each recipeDetails.instructions as instruction}
+                        <li>{instruction}</li>
+                    {/each}
+                </ol>
 
+            </div>
         </div>
     </div>
 </div>
