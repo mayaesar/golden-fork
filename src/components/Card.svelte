@@ -6,7 +6,7 @@
 <article class="max-w-xs rounded-2xl overflow-hidden bg-[#EFE4D3] shadow-xl">
     <img
         src={recipe.image_url}
-        alt="food"
+        alt={recipe.title}
         class="rounded-2xl object-cover min-w-[250px] max-w-[250px] aspect-square"
     />
     <div class="px-6 py-4">
