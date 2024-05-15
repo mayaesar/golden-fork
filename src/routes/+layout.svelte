@@ -1,7 +1,10 @@
 <script>
     import "../app.css";
+
+    import Navbar from "../components/ui/Navbar.svelte";
 </script>
 
-<main class="bg-cream flex-1 flex flex-col max-w-app mx-auto px-3 py-6">
+<Navbar />
+<main class="bg-white flex-1 flex flex-col max-w-app w-full mx-auto">
     <slot />
 </main>

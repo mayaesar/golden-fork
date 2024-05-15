@@ -1,45 +1,41 @@
 <script lang="ts">
-    import { recipe_details as recipes } from "$lib/mocks/recipe_details";
+    import { onMount } from "svelte";
 
-    import Card from "../components/Card.svelte";
+    import { supabase } from "$lib/services/supabase";
+    import { Route } from "$types/routes";
+    import type { Tables } from "$types/supabase";
+
+    import RecipeCard from "../components/RecipeCard.svelte";
+
+    let recipes: Tables<"recipes">[] = [];
+
+    const loadRecipes = async () => {
+        const { error, data } = await supabase
+            .from("recipes")
+            .select();
+
+        if (error) {
+            console.error(error);
+            return;
+        }
+
+        recipes = data;
+    };
+
+    onMount(() => {
+        loadRecipes();
+    });
 </script>
 
-<div class="flex-1 pt-6">
-    <h1 class="text-center text-4xl mb-16">Most Made</h1>
-    <div class="overflow-x-auto hide-scrollbar -mx-3 px-3 pb-12">
-        <div class="inline-flex items-center gap-6">
-            {#each recipes as recipe}
-                {#each recipe.categories as category}
-                    {#if (category === "mostMade")}
-                        <a href={`/recipes/${recipe.id}`}>
-                            <Card recipe={recipe} />
-                        </a>
-                    {/if}
-                {/each}
-            {/each}
-        </div>
-    </div>
-    <h1 class="text-3xl mb-6 ml-4">To Try</h1>
-    <div class="overflow-x-auto hide-scrollbar -mx-3 px-3 pb-12">
-        <div class="inline-flex items-center gap-6">
-            {#each recipes as recipe}
-                {#each recipe.categories as category}
-                    {#if (category === "mustTry")}
-                        <a href={`/recipes/${recipe.id}`}>
-                            <Card recipe={recipe} />
-                        </a>
-                    {/if}
-                {/each}
-            {/each}
-        </div>
-    </div>
+<div class="flex-1 py-3">
+    <h1 class="text-2xl font-bold px-2 mb-6">Recipes</h1>
+    <ul class="overflow-x-auto hide-scrollbar flex flex-nowrap gap-4 px-2 pb-12">
+        {#each recipes as recipe}
+            <li class="shrink-0">
+                <a href={`${Route.Recipes}/${recipe.id}`}>
+                    <RecipeCard {recipe} />
+                </a>
+            </li>
+        {/each}
+    </ul>
 </div>
-
-
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
-
-    * {
-        font-family: "Lato", sans-serif
-    }
-</style>

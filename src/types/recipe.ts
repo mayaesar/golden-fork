@@ -1,9 +1,7 @@
-type Ingredient = {
+export type Ingredient = {
     name: string;
     quantity: number;
     unit: string;
-    note?: string;
-
 };
 
 export type Recipe = {
@@ -17,4 +15,4 @@ export type Recipe = {
 export type RecipeDetails = Recipe & {
     ingredients: Ingredient[];
     instructions: string[];
-}
+};
