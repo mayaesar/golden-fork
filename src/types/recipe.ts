@@ -4,6 +4,13 @@ export type Ingredient = {
     unit: string;
 };
 
+export type Nutrition = {
+    calories: number;
+    protein: number;
+    fat: number;
+    carbohydrates: number;
+};
+
 export type Recipe = {
     id: string;
     title: string;

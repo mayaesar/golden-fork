@@ -28,7 +28,7 @@
 </script>
 
 <div class="flex-1 py-3">
-    <h1 class="text-2xl font-bold px-2 mb-6">Recipes</h1>
+    <h1 class="text-2xl text-theme font-bold px-2 mb-3">Newest</h1>
     <ul class="overflow-x-auto hide-scrollbar flex flex-nowrap gap-4 px-2 pb-12">
         {#each recipes as recipe}
             <li class="shrink-0">

@@ -4,7 +4,7 @@
 </script>
 
 {#if $isVisible}
-    <nav class="sticky top-0 z-[1] w-full max-w-app mx-auto bg-white shadow flex justify-center py-3">
+    <nav class="sticky top-0 z-[1] w-full max-w-app mx-auto bg-slate-950 text-white shadow flex justify-center py-3">
         {#if $isBackButtonVisible}
             <a
                 href={$backUrl}
@@ -15,6 +15,6 @@
                 />
             </a>
         {/if}
-        <p class="text-2xl font-bold tracking-wide">Golden Fork</p>
+        <p class="text-2xl font-bold tracking-wide text-theme">Golden <span class="text-theme text-primary-300">Fork</span></p>
     </nav>
 {/if}

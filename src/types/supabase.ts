@@ -18,6 +18,7 @@ export type Database = {
           image_url: string
           ingredients: Json[]
           instructions: string[]
+          nutrition: Json
           preparation_time_min: number
           servings: number
           title: string
@@ -30,6 +31,7 @@ export type Database = {
           image_url: string
           ingredients?: Json[]
           instructions?: string[]
+          nutrition?: Json
           preparation_time_min: number
           servings?: number
           title: string
@@ -42,6 +44,7 @@ export type Database = {
           image_url?: string
           ingredients?: Json[]
           instructions?: string[]
+          nutrition?: Json
           preparation_time_min?: number
           servings?: number
           title?: string

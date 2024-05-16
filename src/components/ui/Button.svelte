@@ -25,7 +25,7 @@
     <button
         on:click={(event) => dispatch("click", event)}
         class={cn(
-            "flex items-center justify-center gap-2 bg-primary-300 text-black rounded-2xl text-xl font-medium shadow-md py-4 px-3 active:bg-primary-400 select-none transition-all disabled:opacity-50 disabled:pointer-events-none",
+            "flex items-center justify-center gap-2 bg-primary-300 text-black rounded-2xl text-xl font-medium shadow-md py-4 px-3 active:bg-primary-200 select-none transition-all disabled:opacity-50 disabled:pointer-events-none",
             $$restProps.class,
         )}
         disabled={$$restProps.disabled}
