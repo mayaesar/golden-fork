@@ -15,6 +15,6 @@
                 />
             </a>
         {/if}
-        <p class="text-2xl font-bold tracking-wide text-theme">Golden <span class="text-theme text-primary-300">Fork</span></p>
+        <p class="text-2xl font-bold tracking-wide font-theme">Golden <span class="font-theme text-primary-300">Fork</span></p>
     </nav>
 {/if}

@@ -16,7 +16,7 @@
             <p class="font-medium tracking-wide text-xl truncate">{recipe.title}</p>
             <p class="flex items-center gap-1 text-sm opacity-90">
                 <HeroiconsClock />
-                <span class="text-shadow">{recipe.preparation_time_min} min</span>
+                <span class="text-shadow">{recipe.preparation_time_min + recipe.cooking_time_min} min</span>
             </p>
         </div>
     </div>
