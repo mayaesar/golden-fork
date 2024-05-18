@@ -15,12 +15,13 @@ export type Database = {
           created_at: string
           description: string | null
           id: string
-          image_url: string
+          image_url: string | null
           ingredients: Json[]
           instructions: string[]
           nutrition: Json
           preparation_time_min: number
           servings: number
+          tags: string[]
           title: string
         }
         Insert: {
@@ -28,12 +29,13 @@ export type Database = {
           created_at?: string
           description?: string | null
           id?: string
-          image_url: string
+          image_url?: string | null
           ingredients?: Json[]
           instructions?: string[]
           nutrition?: Json
           preparation_time_min: number
           servings?: number
+          tags?: string[]
           title: string
         }
         Update: {
@@ -41,12 +43,13 @@ export type Database = {
           created_at?: string
           description?: string | null
           id?: string
-          image_url?: string
+          image_url?: string | null
           ingredients?: Json[]
           instructions?: string[]
           nutrition?: Json
           preparation_time_min?: number
           servings?: number
+          tags?: string[]
           title?: string
         }
         Relationships: []

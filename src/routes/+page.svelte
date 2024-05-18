@@ -1,7 +1,6 @@
 <script lang="ts">
     import { onMount } from "svelte";
 
-    import UilRestaurant from "~icons/uil/restaurant";
     import { supabase } from "$lib/services/supabase";
     import { Route } from "$types/routes";
     import type { Tables } from "$types/supabase";
@@ -13,7 +12,8 @@
     const loadRecipes = async () => {
         const { error, data } = await supabase
             .from("recipes")
-            .select();
+            .select()
+            .order("created_at", { ascending: false });
 
         if (error) {
             console.error(error);

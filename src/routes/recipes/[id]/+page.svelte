@@ -6,8 +6,10 @@
     import PhCookingPot from "~icons/ph/cooking-pot";
     import PhFire from "~icons/ph/fire";
     import PhHeartStraightBold from "~icons/ph/heart-straight-bold";
+    import { goto } from "$app/navigation";
     import { page } from "$app/stores";
     import { useNavbar } from "$lib/composables/useNavbar";
+    import { api } from "$lib/services/api";
     import { supabase } from "$lib/services/supabase";
     import { formatQuantity } from "$lib/utils/recipe";
     import { cn } from "$lib/utils/style";
@@ -65,6 +67,16 @@
         } finally {
             isLoading = false;
         }
+    };
+
+    const test = async () => {
+        await api("/recipes/generate", {
+            method: "POST",
+            body: {
+                prompt: "Generate a quiche recipe",
+            },
+        });
+        await goto(Route.Home);
     };
 
     onMount(() => {
@@ -140,7 +152,7 @@
                 <div class="px-3 pb-6">
                     <div class="mb-6">
                         <h2 class="font-bold text-xl leading-snug mb-1">Description</h2>
-                        <p class="opacity-80">{recipe.description}</p>
+                        <p class="text-sm opacity-80">{recipe.description}</p>
                     </div>
 
                     <div class="flex items-center gap-2 mb-3">
@@ -181,7 +193,12 @@
                 </div>
 
                 <div class="sticky bottom-0 bg-white border-t border-black/20 mt-auto p-3">
-                    <Button class="w-full font-theme">Start cooking</Button>
+                    <Button
+                        on:click={test}
+                        class="w-full font-theme"
+                    >
+                        Start cooking
+                    </Button>
                 </div>
             </div>
         </div>
