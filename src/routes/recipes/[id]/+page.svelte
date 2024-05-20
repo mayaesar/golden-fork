@@ -6,18 +6,16 @@
     import PhCookingPot from "~icons/ph/cooking-pot";
     import PhFire from "~icons/ph/fire";
     import PhHeartStraightBold from "~icons/ph/heart-straight-bold";
-    import { goto } from "$app/navigation";
     import { page } from "$app/stores";
+    import Button from "$components/ui/Button.svelte";
+    import Image from "$components/ui/Image.svelte";
     import { useNavbar } from "$lib/composables/useNavbar";
-    import { api } from "$lib/services/api";
     import { supabase } from "$lib/services/supabase";
     import { formatQuantity } from "$lib/utils/recipe";
     import { cn } from "$lib/utils/style";
     import type { Ingredient, Nutrition } from "$types/recipe";
     import { Route } from "$types/routes";
     import type { Tables } from "$types/supabase";
-
-    import Button from "../../../components/ui/Button.svelte";
 
     let recipe: Tables<"recipes">;
     let ingredientItems: Array<{
@@ -69,16 +67,6 @@
         }
     };
 
-    const test = async () => {
-        await api("/recipes/generate", {
-            method: "POST",
-            body: {
-                prompt: "Generate a quiche recipe",
-            },
-        });
-        await goto(Route.Home);
-    };
-
     onMount(() => {
         loadRecipe();
     });
@@ -87,7 +75,7 @@
 {#if !isLoading}
     <div class="relative -mt-6">
         <div class="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-app">
-            <img
+            <Image
                 src={recipe.image_url}
                 alt={recipe.title}
                 class="object-cover w-full h-[40dvh]"
@@ -104,7 +92,7 @@
         </div>
 
         <div class="-mt-6">
-            <div class="relative bg-white shadow rounded-t-2xl mt-[40dvh]">
+            <div class="relative bg-white shadow-xl rounded-t-2xl mt-[40dvh]">
                 <div class="flex justify-center py-4 mb-3">
                     <div class="bg-gray-300 w-10 h-1 rounded-lg" />
                 </div>
@@ -193,10 +181,7 @@
                 </div>
 
                 <div class="sticky bottom-0 bg-white border-t border-black/20 mt-auto p-3">
-                    <Button
-                        on:click={test}
-                        class="w-full font-theme"
-                    >
+                    <Button class="w-full font-theme">
                         Start cooking
                     </Button>
                 </div>

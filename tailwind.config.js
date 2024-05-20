@@ -21,6 +21,15 @@ export default {
       maxWidth: {
         "app": "650px",
       },
+      boxShadow: {
+        "sm": "2px 2px 5px rgba(0, 0, 0, 0.2)",
+        "md": "2px 2px 10px rgba(0, 0, 0, 0.2)",
+        "lg": "2px 2px 15px rgba(0, 0, 0, 0.2)",
+        "xl": "2px 2px 20px rgba(0, 0, 0, 0.2)",
+        "2xl": "2px 2px 30px rgba(0, 0, 0, 0.2)",
+        "3xl": "2px 2px 40px rgba(0, 0, 0, 0.2)",
+        "4xl": "2px 2px 50px rgba(0, 0, 0, 0.2)",
+      },
     },
   },
   plugins: [],
