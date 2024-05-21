@@ -12,7 +12,7 @@ const compressImage = async (buffer: ArrayBuffer) => {
 };
 
 export const generateImage = async (recipe: Tables<"recipes">) => {
-    const prompt = `${recipe.description}. Picture taken with lens MM 30 mm.`;
+    const prompt = `${recipe.description}. Captured with lens MM 30 mm.`;
 
     const response = await openai.images.generate({
         model: "dall-e-3",
