@@ -66,7 +66,7 @@
             </Button>
 
             <div class="absolute top-28 left-0 w-full">
-                <h1 class="text-white text-center text-4xl font-theme title-shadow">
+                <h1 class="text-white text-center text-4xl font-theme title-shadow px-3">
                     {recipe.title}
                 </h1>
             </div>
